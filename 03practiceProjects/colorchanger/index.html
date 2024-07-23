@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>color scheme switcher</title>
+    <style>
+      .button {
+        height: 200px;
+        width: 200px;
+        border: 1px solid;
+        border-radius: 10px;
+        display: inline-block;
+      }
+      #grey {
+        background: grey;
+      }
+      #white {
+        background: white;
+      }
+      #blue {
+        background: blue;
+      }
+      #yellow {
+        background: yellow;
+      }
+      h1,
+      h2 {
+        text-align: center;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        border: solid black 1px;
+        width: 100vmax;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>color scheme switcher</h1>
+      <main>
+        <span class="button" id="grey"></span>
+        <span class="button" id="white"></span>
+        <span class="button" id="blue"></span>
+        <span class="button" id="yellow"></span>
+      </main>
+      <h2>try to change color of background <span> of the webpage</span></h2>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

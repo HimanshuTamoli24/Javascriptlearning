@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Async JavaScript Example</title>
+</head>
+<body>
+  <h1 id="headerText">DE-code</h1>
+  <button id="stopButton">Stop</button>
+
+  <script>
+    // Get references to the elements
+    const headerElement = document.querySelector("#headerText");
+    const stopButton = document.querySelector("#stopButton");
+
+    // Function to change the header text after 2 seconds
+    const changeHeaderText = setTimeout(() => {
+      headerElement.innerHTML = "DE-CODE";
+      headerElement.style.background = "red";
+      headerElement.style.color = "yellow";
+    }, 2 * 1000);
+
+    // Function to repeatedly add text to the header every 4 seconds
+    const addTextPeriodically = setInterval(() => {
+      headerElement.innerHTML += " DE-CODE ALL CODE SUCCESSFULLY";
+      headerElement.style.background = "blue";
+      headerElement.style.color = "pink";
+    }, 4 * 1000);
+
+    // Event listener for the stop button
+    stopButton.addEventListener("click", () => {
+      // Stop the text from being added
+      clearInterval(addTextPeriodically);
+      // Optionally, stop the text change
+      clearTimeout(changeHeaderText);
+      console.log("Text addition stopped");
+    });
+  </script>
+</body>
+</html>
