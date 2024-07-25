@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combined Activities</title>
+    <style>
+      #hoverDiv {
+        width: 100px;
+        height: 100px;
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Elements for Activity 1 -->
+    <div id="myDiv">Original Text</div>
+    <div class="myClass">Background Color Change</div>
+
+    <!-- Elements for Activity 2 -->
+    <ul id="myList">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+
+    <!-- Elements for Activity 3 -->
+    <div id="removeMe">Remove this div</div>
+    <ul id="removeChildList">
+      <li>Child 1</li>
+      <li>Child 2</li>
+      <li>Child 3</li>
+    </ul>
+
+    <!-- Elements for Activity 4 -->
+    <img id="myImage" src="old_image.jpg" alt="Old Image" />
+    <div id="classDiv" class="oldClass">Class Div</div>
+
+    <!-- Elements for Activity 5 -->
+    <button id="myButton">Click Me</button>
+    <p id="myParagraph">Original Text</p>
+    <div id="hoverDiv">Hover over me</div>
+
+    <script>
+      // Activity 1: Selecting and Manipulating Elements
+      // Task 1
+      var myDiv = document.getElementById("myDiv");
+      myDiv.textContent = "New Text";
+
+      // Task 2
+      var myClassElement = document.querySelector(".myClass");
+      myClassElement.style.backgroundColor = "lightblue";
+
+      // Activity 2: Creating and Appending Elements
+      // Task 3
+      var newDiv = document.createElement("div");
+      newDiv.textContent = "This is a new div";
+      document.body.appendChild(newDiv);
+
+      // Task 4
+      var newLi = document.createElement("li");
+      newLi.textContent = "Item 3";
+      var myList = document.getElementById("myList");
+      myList.appendChild(newLi);
+
+      // Activity 3: Removing Elements
+      // Task 5
+      var removeElement = document.getElementById("removeMe");
+      removeElement.parentNode.removeChild(removeElement);
+
+      // Task 6
+      var removeChildList = document.getElementById("removeChildList");
+      removeChildList.removeChild(removeChildList.lastElementChild);
+
+      // Activity 4: Modifying Attributes and Classes
+      // Task 7
+      var myImage = document.getElementById("myImage");
+      myImage.src = "new_image.jpg";
+
+      // Task 8
+      var classDiv = document.getElementById("classDiv");
+      classDiv.classList.add("newClass");
+      classDiv.classList.remove("oldClass");
+
+      // Activity 5: Event Handling
+      // Task 9
+      var myButton = document.getElementById("myButton");
+      myButton.addEventListener("click", function () {
+        var myParagraph = document.getElementById("myParagraph");
+        myParagraph.textContent = "Text changed!";
+      });
+
+      // Task 10
+      var hoverDiv = document.getElementById("hoverDiv");
+      hoverDiv.addEventListener("mouseover", function () {
+        hoverDiv.style.borderColor = "red";
+        hoverDiv.style.borderStyle = "solid";
+      });
+    </script>
+  </body>
+</html>

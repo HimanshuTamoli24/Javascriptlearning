@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handling Example</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Activity 1 -->
+    <button id="textButton">Change Text</button>
+    <p id="textParagraph">Original text</p>
+
+    <img
+      id="toggleImage"
+      src="https://via.placeholder.com/150"
+      alt="Placeholder Image"
+    />
+
+    <!-- Activity 2 -->
+    <div
+      id="colorBox"
+      style="width: 100px; height: 100px; background-color: lightblue"
+    ></div>
+
+    <!-- Activity 3 -->
+    <input id="keyInput" type="text" placeholder="Type here" />
+    <p id="keyDisplay">Key press will appear here</p>
+
+    <!-- Activity 4 -->
+    <form id="myForm">
+      <input type="text" name="inputField" placeholder="Enter text" />
+      <button type="submit">Submit</button>
+    </form>
+    <p id="formOutput">Form data will appear here</p>
+
+    <select id="mySelect">
+      <option value="Option 1">Option 1</option>
+      <option value="Option 2">Option 2</option>
+    </select>
+    <p id="selectDisplay">Selected option will appear here</p>
+
+    <!-- Activity 5 -->
+    <ul id="myList">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <div id="parentDiv">
+      <!-- Dynamically added child elements will appear here -->
+    </div>
+
+    <script>
+      // Activity 1: Basic Event Handling
+      document
+        .getElementById("textButton")
+        .addEventListener("click", function () {
+          document.getElementById("textParagraph").textContent =
+            "Text changed!";
+        });
+
+      document
+        .getElementById("toggleImage")
+        .addEventListener("dblclick", function () {
+          const img = document.getElementById("toggleImage");
+          img.classList.toggle("hidden");
+        });
+
+      // Activity 2: Mouse Events
+      document
+        .getElementById("colorBox")
+        .addEventListener("mouseover", function () {
+          this.classList.add("highlight");
+        });
+
+      document
+        .getElementById("colorBox")
+        .addEventListener("mouseout", function () {
+          this.classList.remove("highlight");
+        });
+
+      // Activity 3: Keyboard Events
+      document
+        .getElementById("keyInput")
+        .addEventListener("keydown", function (event) {
+          console.log("Key pressed:", event.key);
+        });
+
+      document
+        .getElementById("keyInput")
+        .addEventListener("keyup", function () {
+          document.getElementById("keyDisplay").textContent = this.value;
+        });
+
+      // Activity 4: Form Events
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const formData = new FormData(this);
+          let output = "";
+          formData.forEach((value, key) => {
+            output += `${key}: ${value}\n`;
+          });
+          document.getElementById("formOutput").textContent = output;
+        });
+
+      document
+        .getElementById("mySelect")
+        .addEventListener("change", function () {
+          document.getElementById(
+            "selectDisplay"
+          ).textContent = `Selected: ${this.value}`;
+        });
+
+      // Activity 5: Event Delegation
+      document
+        .getElementById("myList")
+        .addEventListener("click", function (event) {
+          if (event.target.tagName === "LI") {
+            console.log("Clicked item:", event.target.textContent);
+          }
+        });
+
+      // Adding a new child element dynamically
+      const newChild = document.createElement("p");
+      newChild.textContent = "Dynamically added child";
+      document.getElementById("parentDiv").appendChild(newChild);
+
+      document
+        .getElementById("parentDiv")
+        .addEventListener("click", function (event) {
+          if (event.target.tagName === "P") {
+            console.log("Clicked child:", event.target.textContent);
+          }
+        });
+    </script>
+  </body>
+</html>

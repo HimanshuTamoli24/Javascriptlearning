@@ -104,7 +104,6 @@ const fetchAllUsers = async () => {
 
 fetchAllUsers();
 
-// Another promise example with incomplete logic (fixed)
 new Promise((resolve, reject) => {
   setTimeout(() => {
     let errorOccurred = false; // example value
