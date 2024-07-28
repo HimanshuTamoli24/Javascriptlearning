@@ -3,7 +3,7 @@
 // Task 1: Intentionally Throw an Error
 function throwError() {
   try {
-    throw new Error("This is an intentional error");
+    throw Error("This is an intentional error");
   } catch (error) {
     console.log("Error caught: " + error.message);
   }
@@ -56,7 +56,7 @@ function createPromise() {
     if (!random) {
       resolve("Promise resolved");
     } else {
-      reject(new Error("Promise rejected"));
+      reject(Error("Promise rejected"));
     }
   });
 }

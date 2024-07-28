@@ -109,3 +109,40 @@ itemModule.addItem("Banana");
 console.log(itemModule.listItems()); // Output: ['Apple', 'Banana']
 itemModule.removeItem("Apple");
 console.log(itemModule.listItems()); // Output: ['Banana']
+
+// Activity 5: Memoization
+
+// Task 7: Create a memoized version of a function that computes factorials.
+
+function factorial(n) {
+  if (n <= 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+function memoize(func) {
+  // Cache to store results
+  const cache = {};
+
+  return function(arg) {
+    // Check if result is already in the cache
+    if (cache[arg] !== undefined) {
+      return cache[arg];
+    }
+
+    // Compute and store the result in the cache
+    const result = func(arg);
+    cache[arg] = result;
+
+    return result;
+  };
+}
+
+// Memoized version of factorial
+const memoizedFactorial = memoize(factorial);
+
+// Example usage
+console.log(memoizedFactorial(5));  // Outputs: 120
+console.log(memoizedFactorial(6));  // Outputs: 720
+console.log(memoizedFactorial(5));  // Outputs: 120 (from cache)
